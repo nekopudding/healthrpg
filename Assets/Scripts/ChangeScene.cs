@@ -9,12 +9,14 @@ public class ChangeScene : MonoBehaviour
     public Player player;
     void Start()
     {
-        
+        Debug.Log("Start adding listener to button");
         btn.onClick.AddListener(NextScene);
+        Debug.Log("Added listener to button");
     }
 
     public void NextScene()
     {
+        Debug.Log("Button clicked");
 
         player.SavePlayer();
         SceneManager.LoadScene(scene);
