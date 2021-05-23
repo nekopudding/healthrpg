@@ -8,13 +8,13 @@ public class Player : MonoBehaviour
 	public static GlobalControl Instance = GlobalControl.Instance;
 
 	public int maxHealth = 100;
-	public int currentHealth;
+	public int currentHealth = 100;
 	public int maxHealthXp = 10; 
 	public int currHealthXp = 0;
 
 
 	public int maxMana = 100;
-	public int currentMana;
+	public int currentMana = 100;
 	public int maxManaXp = 10;
 	public int currManaXp = 0;
 
@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
 	}
 	public void DrainMana(int mana)
 	{
-		currentHealth -= mana;
+		currentMana -= mana;
 
 		manaBar.SetMana(currentMana);
 	}

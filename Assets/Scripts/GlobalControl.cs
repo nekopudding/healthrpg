@@ -17,12 +17,6 @@ public class GlobalControl : MonoBehaviour
     public int maxManaXp = 10;
     public int currManaXp = 0;
 
-    public HealthBar healthBar;
-    public ManaBar manaBar;
-
-    public ExpBar hpXpBar;
-    public ExpBar mpXpBar;
-
     public Player player;
 
     public List<Enemy> enemies = new List<Enemy>();

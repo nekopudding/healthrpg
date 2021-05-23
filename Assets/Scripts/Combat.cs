@@ -9,22 +9,22 @@ public class Combat : MonoBehaviour
     public Enemy enemy;
     public Player player;
     // Start is called before the first frame update
-    public Combat(Enemy enemy, Player player)
-    {
-        this.enemy = enemy;
-        this.player = player;
 
+
+    public void Start()
+    {
         StartCoroutine(Turns());
     }
 
-
     public IEnumerator Turns()
     {
-        int playerAtk = ((player.maxMana - 100) + 1) * 2;
+        int playerAtk = (player.maxMana - 95) * 2;
         while (player.currentHealth > 0 && enemy.hp > 0)
         {
+            Debug.Log(player.currentMana);
             if (player.currentMana > 0)
             {
+                Debug.Log("Enemy takes damage");
                 enemy.TakeDamage(playerAtk);
                 player.DrainMana(10);
             }
@@ -32,7 +32,6 @@ public class Combat : MonoBehaviour
             player.TakeDamage(enemy.dmg);
             if (enemy.hp <= 0 || player.currentHealth <= 0)
             {
-                player.SavePlayer();
                 SceneManager.LoadScene("Explore");
                 break;
             }
