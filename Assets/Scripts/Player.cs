@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-	public static GlobalControl Instance;
+	public static GlobalControl Instance = GlobalControl.Instance;
 
 	public int maxHealth = 100;
 	public int currentHealth;
-	public int maxHealthXp = 10;
+	public int maxHealthXp = 10; 
 	public int currHealthXp = 0;
 
 
@@ -38,11 +38,6 @@ public class Player : MonoBehaviour
 			GlobalControl.Instance.currentMana = currentMana;
 			GlobalControl.Instance.maxManaXp = maxManaXp;
 			GlobalControl.Instance.currManaXp = currManaXp;
-
-			GlobalControl.Instance.healthBar = healthBar;
-			GlobalControl.Instance.manaBar = manaBar;
-			GlobalControl.Instance.hpXpBar = hpXpBar;
-			GlobalControl.Instance.mpXpBar = mpXpBar;
 		}
 		Debug.Log("Finished saving player");
 	}
@@ -50,6 +45,7 @@ public class Player : MonoBehaviour
     public void Start()
     {
 		Debug.Log("Player start");
+		Instance = GlobalControl.Instance;
 		if (Instance != null)
         {
 			Debug.Log("Instance not null, loading player");
@@ -63,10 +59,17 @@ public class Player : MonoBehaviour
 			maxManaXp = GlobalControl.Instance.maxManaXp;
 			currManaXp = GlobalControl.Instance.currManaXp;
 
-			healthBar = GlobalControl.Instance.healthBar;
-			manaBar = GlobalControl.Instance.manaBar;
-			hpXpBar = GlobalControl.Instance.hpXpBar;
-			mpXpBar = GlobalControl.Instance.mpXpBar;
+			healthBar.SetMaxHealth(maxHealth);
+			healthBar.SetHealth(currentHealth);
+			manaBar.SetMaxMana(maxMana);
+			manaBar.SetMana(currentMana);
+			hpXpBar.SetMaxExp(maxHealthXp);
+			hpXpBar.SetExp(currHealthXp);
+			mpXpBar.SetMaxExp(maxManaXp);
+			mpXpBar.SetExp(currManaXp);
+
+
+
 		}
 		Debug.Log("Loaded player");
 	}
