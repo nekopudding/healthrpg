@@ -29,7 +29,6 @@ public class Player : MonoBehaviour
 		Debug.Log("Start saving player");
 		if (Instance != null) {
 			Debug.Log("Instance not null, save player");
-
 			GlobalControl.Instance.maxHealth = maxHealth;
 			GlobalControl.Instance.currentHealth = currentHealth;
 			GlobalControl.Instance.maxHealthXp = maxHealthXp;
