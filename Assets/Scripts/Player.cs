@@ -90,7 +90,7 @@ public class Player : MonoBehaviour
 		healthBar.SetHealth(currentHealth);
 	}
 
-	void GainExp(string type, int amount)
+	public void GainExp(string type, int amount)
     {
 		if (type == "hp")
         {
