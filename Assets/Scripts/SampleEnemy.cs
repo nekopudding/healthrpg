@@ -10,7 +10,7 @@ public class SampleEnemy : MonoBehaviour
 
     public string name;
     public int lvl = 5;
-    public int hp = 50;
+    public int hp = 100;
     public int dmg = 2;
 
     public Slider slider;
