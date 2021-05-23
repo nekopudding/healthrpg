@@ -9,6 +9,7 @@ public class Map : MonoBehaviour
     public int height;
     public int width;
     public GameObject enemyPrefab;
+    public GameObject self;
     int mapSize = 1000;
     int numEnemies = 10;
     double mPerPixelX;
@@ -19,8 +20,12 @@ public class Map : MonoBehaviour
     void Start()
     {
         Input.location.Start();
-        mPerPixelX = width / mapSize;
-        mPerPixelY = height / mapSize;
+        mPerPixelX = (double) mapSize / (double) width;
+        mPerPixelY = (double) mapSize / (double) height;
+        Debug.Log("mPerPixelX: " + mPerPixelX);
+        Debug.Log("Map Size: " + mapSize);
+        Debug.Log("Width: " + width);
+        InvokeRepeating("UpdateMap", 0.0f, 5f);
     }
 
     LatLon LocationInfoToLatLon(LocationInfo data)
@@ -30,10 +35,10 @@ public class Map : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void UpdateMap()
     {
         GlobalControl.Instance.enemies = (from enemy in GlobalControl.Instance.enemies
-                                          where location.Dist(enemy.location) < mapSize
+                                          where enemy != null && location.Dist(enemy.location) < mapSize
                                           select enemy).ToList();
         UpdateLocation();
         CreateEnemies();
@@ -56,13 +61,17 @@ public class Map : MonoBehaviour
     {
         double minDist = 0;
         LatLon randomLocation = new LatLon(0, 0);
-        while (minDist < 100)
+        for (int i = 0; i < 100; i++)
         {
             minDist = mapSize;
             randomLocation = new LatLon(location, UnityEngine.Random.Range(-mapSize / 2, mapSize / 2), UnityEngine.Random.Range(-mapSize / 2, mapSize / 2));
             foreach (Enemy enemy in GlobalControl.Instance.enemies)
             {
                 minDist = Math.Min(minDist, randomLocation.Dist(enemy.location));
+            }
+            if (minDist >= 100)
+            {
+                break;
             }
         }
         return new Enemy(randomLocation, 1, 100, 20);
@@ -72,9 +81,10 @@ public class Map : MonoBehaviour
     {
         double distX = location.DistX(enemy.location);
         double distY = location.DistY(enemy.location);
-        float posX =  (float) (distX / mPerPixelX - width / 2);
-        float posY =  (float) (distY / mPerPixelY - width / 2);
-        Instantiate(enemyPrefab, new Vector3(posX, posY, 0), Quaternion.identity);
+        float posX =  (float) (distX / mPerPixelX);
+        float posY =  (float) (distY / mPerPixelY);
+        GameObject newEnemy = Instantiate(enemyPrefab, new Vector3(posX, posY, 0), Quaternion.identity);
+        newEnemy.transform.SetParent(gameObject.transform, false);
     }
 
     void UpdateLocation()

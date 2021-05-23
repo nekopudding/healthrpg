@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 4158486647772630902}
   - component: {fileID: 4158486647772630897}
   - component: {fileID: 4158486647772630896}
-  - component: {fileID: 7989787749114274794}
+  - component: {fileID: 8200753163727026863}
   m_Layer: 5
   m_Name: EnemyPrefab
   m_TagString: Untagged
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7989787749114274794
+--- !u!114 &8200753163727026863
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -210,6 +210,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4158486647772630909}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7c71c727ee63ed44933c3074226c760, type: 3}
+  m_Script: {fileID: 11500000, guid: c2bd4af1693186d49938fc66e2a15bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scene: Battle
+  btn: {fileID: 4158486647772630896}
+  player: {fileID: 0}

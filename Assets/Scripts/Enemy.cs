@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Enemy : MonoBehaviour
+public class Enemy
 {
     static GlobalControl globalControl;
     
@@ -20,11 +20,6 @@ public class Enemy : MonoBehaviour
         this.hp = hp;
         this.dmg = dmg;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        globalControl = GlobalControl.GetInstance();
-    }
 
     public Enemy(string name, int lvl)
     {
@@ -32,12 +27,6 @@ public class Enemy : MonoBehaviour
         this.lvl = lvl;
         this.hp = lvl*10;
         this.dmg = (int) Math.Floor(lvl*0.5);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void TakeDamage(int damage)
