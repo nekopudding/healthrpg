@@ -26,6 +26,7 @@ public class GlobalControl : MonoBehaviour
     public Player player;
 
     public List<Enemy> enemies = new List<Enemy>();
+    public Enemy currentEnemy;
 
     public static GlobalControl GetInstance()
     {

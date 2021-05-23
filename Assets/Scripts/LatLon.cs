@@ -9,16 +9,16 @@ public class LatLon
     double lon;
     double CONVERSION_FACTOR = 111139;
 
-    LatLon(double lat, double lon)
+    public LatLon(double lat, double lon)
     {
         this.lat = lat;
         this.lon = lon;
     }
 
-    LatLon(double lat, double lon, double disty, double distx)
+    public LatLon(LatLon latlon, double disty, double distx)
     {
-        this.lat = lat;
-        this.lon = lon;
+        this.lat = latlon.lat;
+        this.lon = latlon.lon;
         AddLat(disty);
         AddLon(distx);
     }
@@ -26,6 +26,16 @@ public class LatLon
     public double Dist(LatLon latlon)
     {
         return Sqrt(Pow((latlon.lat - this.lat), 2) + Pow((latlon.lon + this.lon), 2)) / CONVERSION_FACTOR;
+    }
+
+    public double DistX(LatLon latlon)
+    {
+        return (latlon.lon - this.lon) / CONVERSION_FACTOR;
+    }
+
+    public double DistY(LatLon latlon)
+    {
+        return (latlon.lat - this.lat) / CONVERSION_FACTOR;
     }
 
     public void AddLat(double dist)
