@@ -14,6 +14,7 @@ public class ChangeScene : MonoBehaviour
 
     public void NextScene()
     {
+        Debug.Log("hdasfkj");
         player.SavePlayer();
         SceneManager.LoadScene(scene);
     }

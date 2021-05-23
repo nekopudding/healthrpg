@@ -26,39 +26,44 @@ public class Player : MonoBehaviour
 	// Start is called before the first frame update
 	public void SavePlayer()
 	{
-		GlobalControl.Instance.maxHealth = maxHealth;
-		GlobalControl.Instance.currentHealth = currentHealth;
-		GlobalControl.Instance.maxHealthXp = maxHealthXp;
-		GlobalControl.Instance.currHealthXp = currHealthXp;
+		if (Instance != null) { 
+			GlobalControl.Instance.maxHealth = maxHealth;
+			GlobalControl.Instance.currentHealth = currentHealth;
+			GlobalControl.Instance.maxHealthXp = maxHealthXp;
+			GlobalControl.Instance.currHealthXp = currHealthXp;
 
-		GlobalControl.Instance.maxMana = maxMana;
-		GlobalControl.Instance.currentMana = currentMana;
-		GlobalControl.Instance.maxManaXp = maxManaXp;
-		GlobalControl.Instance.currManaXp = currManaXp;
+			GlobalControl.Instance.maxMana = maxMana;
+			GlobalControl.Instance.currentMana = currentMana;
+			GlobalControl.Instance.maxManaXp = maxManaXp;
+			GlobalControl.Instance.currManaXp = currManaXp;
 
-		GlobalControl.Instance.healthBar = healthBar;
-		GlobalControl.Instance.manaBar = manaBar;
-		GlobalControl.Instance.hpXpBar = hpXpBar;
-		GlobalControl.Instance.mpXpBar = mpXpBar;
+			GlobalControl.Instance.healthBar = healthBar;
+			GlobalControl.Instance.manaBar = manaBar;
+			GlobalControl.Instance.hpXpBar = hpXpBar;
+			GlobalControl.Instance.mpXpBar = mpXpBar;
+		}
 
 	}
 
     public void Start()
     {
-		maxHealth = GlobalControl.Instance.maxHealth;
-		currentHealth = GlobalControl.Instance.currentHealth;
-		maxHealthXp = GlobalControl.Instance.maxHealthXp;
-		currHealthXp = GlobalControl.Instance.currHealthXp;
+		if (Instance != null)
+        {
+			maxHealth = GlobalControl.Instance.maxHealth;
+			currentHealth = GlobalControl.Instance.currentHealth;
+			maxHealthXp = GlobalControl.Instance.maxHealthXp;
+			currHealthXp = GlobalControl.Instance.currHealthXp;
 
-		maxMana = GlobalControl.Instance.maxMana;
-		currentMana = GlobalControl.Instance.currentMana;
-		maxManaXp = GlobalControl.Instance.maxManaXp;
-		currManaXp = GlobalControl.Instance.currManaXp;
+			maxMana = GlobalControl.Instance.maxMana;
+			currentMana = GlobalControl.Instance.currentMana;
+			maxManaXp = GlobalControl.Instance.maxManaXp;
+			currManaXp = GlobalControl.Instance.currManaXp;
 
-		healthBar = GlobalControl.Instance.healthBar;
-		manaBar = GlobalControl.Instance.manaBar;
-		hpXpBar = GlobalControl.Instance.hpXpBar;
-		mpXpBar = GlobalControl.Instance.mpXpBar;
+			healthBar = GlobalControl.Instance.healthBar;
+			manaBar = GlobalControl.Instance.manaBar;
+			hpXpBar = GlobalControl.Instance.hpXpBar;
+			mpXpBar = GlobalControl.Instance.mpXpBar;
+		}
 	}
 
     // Update is called once per frame
