@@ -17,6 +17,7 @@ public class ManaBar : MonoBehaviour
 		slider.maxValue = mana;
 		slider.value = mana;
 		maxMana = mana;
+		mptext.text = mana.ToString() + " /" + maxMana.ToString();
 	}
 
 	public void SetMana(int mana)

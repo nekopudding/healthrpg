@@ -48,7 +48,6 @@ public class Activities : MonoBehaviour
     // Update is called once per frame
     public void newActivity()
     {
-        Debug.Log("button Pressed");
         if (currAct != null) {
             player.GainExp(currAct.Item2, act[currAct]);
          }

@@ -27,13 +27,13 @@ public class GlobalControl : MonoBehaviour
     {
         if (Instance == null)
         {
-            Debug.Log("Creating instance");
+            //Debug.Log("Creating instance");
             DontDestroyOnLoad(gameObject);
             Instance = this;
         }
         else if (Instance != this)
         {
-            Debug.Log("Instance already exists, destroying this");
+            //Debug.Log("Instance already exists, destroying this");
             Destroy(gameObject);
         }
     }

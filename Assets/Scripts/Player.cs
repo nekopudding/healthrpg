@@ -100,6 +100,7 @@ public class Player : MonoBehaviour
 			//level up
 			if (currHealthXp >= maxHealthXp)
             {
+				Debug.Log("level up hp");
 				currHealthXp = 0;
 				maxHealthXp += 2;
 				maxHealth += 5;
@@ -115,6 +116,7 @@ public class Player : MonoBehaviour
 			//level up
 			if (currManaXp >= maxManaXp)
 			{
+				Debug.Log("level up mp");
 				currManaXp = 0;
 				maxManaXp += 2;
 				maxMana += 5;
