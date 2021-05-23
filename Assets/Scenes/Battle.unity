@@ -1323,7 +1323,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 969589459}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2bd4af1693186d49938fc66e2a15bd4, type: 3}
+  m_Script: {fileID: 11500000, guid: 27032e335fc36c643b4914ca8390fb4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Explore
@@ -1382,7 +1382,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1086485902}
-  - component: {fileID: 1086485903}
   m_Layer: 5
   m_Name: enemy
   m_TagString: Untagged
@@ -1412,23 +1411,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1086485903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086485901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e360da1b5d9f6740aff57024da9e498, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: 
-  lvl: 10
-  hp: 50
-  dmg: 5
-  slider: {fileID: 0}
 --- !u!1 &1122156839
 GameObject:
   m_ObjectHideFlags: 0
@@ -2353,13 +2335,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1636825331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e360da1b5d9f6740aff57024da9e498, type: 3}
+  m_Script: {fileID: 11500000, guid: c2bd4af1693186d49938fc66e2a15bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Sleep paralysis demon
-  lvl: 5
-  hp: 100
-  dmg: 5
+  name: l
+  lvl: 10
+  hp: 60
+  dmg: 50
   slider: {fileID: 1636825334}
 --- !u!114 &1636825334
 MonoBehaviour:

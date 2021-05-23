@@ -37,7 +37,6 @@ public class Activities : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Instance = GlobalControl.Instance;
         keyList = new List<Tuple<string, string>>(act.Keys);
         newActivity();
         btn.onClick.AddListener(newActivity);

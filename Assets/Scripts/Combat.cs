@@ -6,13 +6,14 @@ using UnityEngine.UI;
 
 public class Combat : MonoBehaviour
 {
-    public Enemy enemy;
+    public SampleEnemy enemy;
     public Player player;
     // Start is called before the first frame update
 
 
     public void Start()
     {
+        Debug.Log("Battle start");
         StartCoroutine(Turns());
     }
 

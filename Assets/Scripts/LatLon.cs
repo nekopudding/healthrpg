@@ -30,12 +30,12 @@ public class LatLon
 
     public double DistX(LatLon latlon)
     {
-        return (latlon.lon - this.lon) / CONVERSION_FACTOR;
+        return (latlon.lon - this.lon) * CONVERSION_FACTOR;
     }
 
     public double DistY(LatLon latlon)
     {
-        return (latlon.lat - this.lat) / CONVERSION_FACTOR;
+        return (latlon.lat - this.lat) * CONVERSION_FACTOR;
     }
 
     public void AddLat(double dist)

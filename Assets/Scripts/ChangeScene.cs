@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 
 public class ChangeScene : MonoBehaviour
 {
@@ -17,7 +19,8 @@ public class ChangeScene : MonoBehaviour
     public void NextScene()
     {
         //Debug.Log("Button clicked");
-        player.SavePlayer();
+        GlobalControl.Instance.player.SavePlayer();
+        GlobalControl.Instance.enemies = new List<Enemy>();
         Input.location.Stop();
         SceneManager.LoadScene(scene);
     }

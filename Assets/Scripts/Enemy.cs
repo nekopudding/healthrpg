@@ -4,23 +4,22 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour
+public class Enemy
 {
     static GlobalControl globalControl;
-    
+
     public string name;
-    public int lvl = 5;
-    public int hp = 50;
-    public int dmg = 2;
+    public int lvl;
+    public int hp;
+    public int dmg;
+    public LatLon location;
 
-    public Slider slider;
-
-    LatLon location;
-
-    // Start is called before the first frame update
-    void Start()
+    public Enemy(LatLon location, int lvl, int hp, int dmg)
     {
-        globalControl = GlobalControl.GetInstance();
+        this.location = location;
+        this.lvl = lvl;
+        this.hp = hp;
+        this.dmg = dmg;
     }
 
     public Enemy(string name, int lvl)
@@ -31,15 +30,8 @@ public class Enemy : MonoBehaviour
         this.dmg = lvl;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void TakeDamage(int damage)
     {
         hp -= damage;
-        slider.value = hp;
     }
 }
