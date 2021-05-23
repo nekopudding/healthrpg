@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -22,6 +23,10 @@ public class Player : MonoBehaviour
 
 	public ExpBar hpXpBar;
 	public ExpBar mpXpBar;
+
+	[SerializeField]
+	private const float COOLDOWN_TIME = 1f;
+	private bool isOnCoolDown = false;
 
 	// Start is called before the first frame update
 	public void SavePlayer()
@@ -74,21 +79,19 @@ public class Player : MonoBehaviour
 		Debug.Log("Loaded player");
 	}
 
-    // Update is called once per frame
-    void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			TakeDamage(20);
-		}
-	}
-
-	void TakeDamage(int damage)
+	public void TakeDamage(int damage)
 	{
 		currentHealth -= damage;
 
 		healthBar.SetHealth(currentHealth);
 	}
+	public void DrainMana(int mana)
+	{
+		currentHealth -= mana;
+
+		manaBar.SetMana(currentMana);
+	}
+
 
 	public void GainExp(string type, int amount)
     {
