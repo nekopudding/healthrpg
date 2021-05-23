@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using System;
 
 public class Map : MonoBehaviour
 {
     public int height;
     public int width;
+    public GameObject enemyPrefab;
     int mapSize = 1000;
+    int numEnemies = 10;
     double mPerPixelX;
     double mPerPixelY;
     LatLon location;
@@ -28,8 +32,49 @@ public class Map : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GlobalControl.Instance.enemies = (from enemy in GlobalControl.Instance.enemies
+                                          where location.Dist(enemy.location) < mapSize
+                                          select enemy).ToList();
         UpdateLocation();
+        CreateEnemies();
         DestroyChildren();
+        foreach (Enemy enemy in GlobalControl.Instance.enemies)
+        {
+            DrawEnemy(enemy);
+        }
+    }
+
+    void CreateEnemies()
+    {
+        while (GlobalControl.Instance.enemies.Count < numEnemies)
+        {
+            GlobalControl.Instance.enemies.Add(CreateEnemy());
+        }
+    }
+
+    Enemy CreateEnemy()
+    {
+        double minDist = 0;
+        LatLon randomLocation = new LatLon(0, 0);
+        while (minDist < 100)
+        {
+            minDist = mapSize;
+            randomLocation = new LatLon(location, UnityEngine.Random.Range(-mapSize / 2, mapSize / 2), UnityEngine.Random.Range(-mapSize / 2, mapSize / 2));
+            foreach (Enemy enemy in GlobalControl.Instance.enemies)
+            {
+                minDist = Math.Min(minDist, randomLocation.Dist(enemy.location));
+            }
+        }
+        return new Enemy(randomLocation, 1, 100, 20);
+    }
+
+    void DrawEnemy(Enemy enemy)
+    {
+        double distX = location.DistX(enemy.location);
+        double distY = location.DistY(enemy.location);
+        float posX =  (float) (distX / mPerPixelX - width / 2);
+        float posY =  (float) (distY / mPerPixelY - width / 2);
+        Instantiate(enemyPrefab, new Vector3(posX, posY, 0), Quaternion.identity);
     }
 
     void UpdateLocation()

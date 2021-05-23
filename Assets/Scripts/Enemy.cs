@@ -8,8 +8,15 @@ public class Enemy : MonoBehaviour
     public int lvl;
     public int hp;
     public int dmg;
-    LatLon location;
+    public LatLon location;
 
+    public Enemy(LatLon location, int lvl, int hp, int dmg)
+    {
+        this.location = location;
+        this.lvl = lvl;
+        this.hp = hp;
+        this.dmg = dmg;
+    }
     // Start is called before the first frame update
     void Start()
     {
