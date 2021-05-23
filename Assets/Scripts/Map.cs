@@ -63,14 +63,16 @@ public class Map : MonoBehaviour
         LatLon randomLocation = new LatLon(0, 0);
         for (int i = 0; i < 100; i++)
         {
-            minDist = mapSize;
+            minDist = mapSize * 10;
             randomLocation = new LatLon(location, UnityEngine.Random.Range(-mapSize / 2, mapSize / 2), UnityEngine.Random.Range(-mapSize / 2, mapSize / 2));
             foreach (Enemy enemy in GlobalControl.Instance.enemies)
             {
+                Debug.Log(randomLocation.Dist(enemy.location));
                 minDist = Math.Min(minDist, randomLocation.Dist(enemy.location));
             }
-            if (minDist >= 100)
+            if (minDist >= 50)
             {
+                Debug.Log("Min dist: " + minDist);
                 break;
             }
         }

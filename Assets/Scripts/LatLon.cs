@@ -25,7 +25,7 @@ public class LatLon
 
     public double Dist(LatLon latlon)
     {
-        return Sqrt(Pow((latlon.lat - this.lat), 2) + Pow((latlon.lon + this.lon), 2)) / CONVERSION_FACTOR;
+        return Sqrt(Pow((latlon.lat - this.lat), 2) + Pow((latlon.lon + this.lon), 2)) * CONVERSION_FACTOR;
     }
 
     public double DistX(LatLon latlon)
