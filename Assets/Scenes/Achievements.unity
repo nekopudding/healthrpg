@@ -340,10 +340,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
+  maxHealthXp: 10
+  currHealthXp: 0
   maxMana: 100
   currentMana: 0
+  maxManaXp: 10
+  currManaXp: 0
   healthBar: {fileID: 0}
   manaBar: {fileID: 0}
+  hpXpBar: {fileID: 0}
+  mpXpBar: {fileID: 0}
 --- !u!4 &1167718758
 Transform:
   m_ObjectHideFlags: 0
@@ -708,6 +714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene: Home
   btn: {fileID: 2099215364}
+  player: {fileID: 1167718757}
 --- !u!114 &2099215364
 MonoBehaviour:
   m_ObjectHideFlags: 0

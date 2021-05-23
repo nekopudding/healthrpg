@@ -6,6 +6,7 @@ public class ChangeScene : MonoBehaviour
 {
     public string scene = "Home";
     public Button btn;
+    public Player player;
     void Start()
     {
         btn.onClick.AddListener(NextScene);
@@ -13,6 +14,7 @@ public class ChangeScene : MonoBehaviour
 
     public void NextScene()
     {
+        player.SavePlayer();
         SceneManager.LoadScene(scene);
     }
 }

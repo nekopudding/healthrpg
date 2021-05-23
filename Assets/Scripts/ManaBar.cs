@@ -9,20 +9,20 @@ public class ManaBar : MonoBehaviour
 	public Slider slider;
 	public Image fill;
 
-	public Text currmanatext;
-	public Text maxmanatext;
+	public Text mptext;
+	[SerializeField] private int maxMana = 100;
 
 	public void SetMaxMana(int mana)
 	{
 		slider.maxValue = mana;
 		slider.value = mana;
-		maxmanatext.text = mana.ToString();
+		maxMana = mana;
 	}
 
-	public void SetHealth(int mana)
+	public void SetMana(int mana)
 	{
 		slider.value = mana;
-		currmanatext.text = mana.ToString();
+		mptext.text = mana.ToString() + " /" + maxMana.ToString();
 
 	}
 
