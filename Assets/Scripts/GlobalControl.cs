@@ -23,6 +23,22 @@ public class GlobalControl : MonoBehaviour
     public ExpBar hpXpBar;
     public ExpBar mpXpBar;
 
+    public Player player;
+
+    public List<Enemy> enemies = new ArrayList<>();
+
+    public GlobalControl GetInstance()
+    {
+        if (Instance == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            Instance = this;
+        } else
+        {
+            return Instance;
+        }
+    }
+
     void Awake()
     {
         if (Instance == null)
