@@ -25,18 +25,12 @@ public class GlobalControl : MonoBehaviour
 
     public Player player;
 
-    public List<Enemy> enemies = new ArrayList<>();
+    public List<Enemy> enemies = new List<Enemy>();
+    public Enemy currentEnemy;
 
-    public GlobalControl GetInstance()
+    public static GlobalControl GetInstance()
     {
-        if (Instance == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            Instance = this;
-        } else
-        {
-            return Instance;
-        }
+        return Instance;
     }
 
     void Awake()

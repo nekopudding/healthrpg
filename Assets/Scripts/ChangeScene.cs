@@ -18,6 +18,7 @@ public class ChangeScene : MonoBehaviour
     {
         //Debug.Log("Button clicked");
         player.SavePlayer();
+        Input.location.Stop();
         SceneManager.LoadScene(scene);
     }
 }

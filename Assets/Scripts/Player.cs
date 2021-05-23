@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
 		if (Instance != null)
         {
 			Debug.Log("Instance not null, loading player");
-			GlobalInstance.Instace.player = this;
+			Instance.player = this;
 			maxHealth = GlobalControl.Instance.maxHealth;
 			currentHealth = GlobalControl.Instance.currentHealth;
 			maxHealthXp = GlobalControl.Instance.maxHealthXp;
