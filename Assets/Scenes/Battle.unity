@@ -1328,7 +1328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene: Explore
   btn: {fileID: 969589464}
-  player: {fileID: 0}
+  player: {fileID: 672342754}
 --- !u!114 &969589464
 MonoBehaviour:
   m_ObjectHideFlags: 0
