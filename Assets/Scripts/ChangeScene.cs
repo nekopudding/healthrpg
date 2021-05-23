@@ -9,12 +9,13 @@ public class ChangeScene : MonoBehaviour
     public Player player;
     void Start()
     {
+        
         btn.onClick.AddListener(NextScene);
     }
 
     public void NextScene()
     {
-        Debug.Log("hdasfkj");
+
         player.SavePlayer();
         SceneManager.LoadScene(scene);
     }

@@ -26,7 +26,8 @@ public class Player : MonoBehaviour
 	// Start is called before the first frame update
 	public void SavePlayer()
 	{
-		if (Instance != null) { 
+		if (Instance != null) {
+			Debug.Log("hdasfkj");
 			GlobalControl.Instance.maxHealth = maxHealth;
 			GlobalControl.Instance.currentHealth = currentHealth;
 			GlobalControl.Instance.maxHealthXp = maxHealthXp;
