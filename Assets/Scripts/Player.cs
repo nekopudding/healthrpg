@@ -26,7 +26,9 @@ public class Player : MonoBehaviour
 	// Start is called before the first frame update
 	public void SavePlayer()
 	{
-		if (Instance != null) { 
+		Debug.Log("Start saving player");
+		if (Instance != null) {
+			Debug.Log("Instance not null, save player");
 			GlobalControl.Instance.maxHealth = maxHealth;
 			GlobalControl.Instance.currentHealth = currentHealth;
 			GlobalControl.Instance.maxHealthXp = maxHealthXp;
@@ -42,13 +44,15 @@ public class Player : MonoBehaviour
 			GlobalControl.Instance.hpXpBar = hpXpBar;
 			GlobalControl.Instance.mpXpBar = mpXpBar;
 		}
-
+		Debug.Log("Finished saving player");
 	}
 
     public void Start()
     {
+		Debug.Log("Player start");
 		if (Instance != null)
         {
+			Debug.Log("Instance not null, loading player");
 			maxHealth = GlobalControl.Instance.maxHealth;
 			currentHealth = GlobalControl.Instance.currentHealth;
 			maxHealthXp = GlobalControl.Instance.maxHealthXp;
@@ -64,6 +68,7 @@ public class Player : MonoBehaviour
 			hpXpBar = GlobalControl.Instance.hpXpBar;
 			mpXpBar = GlobalControl.Instance.mpXpBar;
 		}
+		Debug.Log("Loaded player");
 	}
 
     // Update is called once per frame
