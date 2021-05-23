@@ -409,6 +409,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 60847716}
   m_CullTransparentMesh: 1
+--- !u!1 &142788247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4158486647772630909, guid: d0f949ac6896dd943a9d9350b4153b8d,
+    type: 3}
+  m_PrefabInstance: {fileID: 4158486647898606058}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &142788248 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4158486647772630898, guid: d0f949ac6896dd943a9d9350b4153b8d,
@@ -1071,8 +1077,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b76a98584825a45a74802acadc1ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  height: 360
-  width: 350
+  height: 0
+  width: 0
+  enemyPrefab: {fileID: 142788247}
 --- !u!1 &1071330664
 GameObject:
   m_ObjectHideFlags: 0
