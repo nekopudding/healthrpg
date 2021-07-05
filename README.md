@@ -4,3 +4,5 @@ Healthrpg is a self-care turn based combat real world exploration game inspired 
 Game is now deployed on itch.io: 
 
 https://nekopudding.itch.io/health-rpg
+
+Music used: Map (Day) - Tomodachi Life Music
